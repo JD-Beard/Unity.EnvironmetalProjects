@@ -7,8 +7,8 @@ public class Movement : MonoBehaviour {
 
 	public Transform pointA;
 	public Transform pointB;
-	public Transform Eye;
-	public Transform Player;
+	//public Transform Eye;
+	//public Transform Player;
 
 	public float percent = 0;
 	public float movementSpeed = 20;
@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour {
 
 		pointA = GameObject.Find ("pointA").transform;
 		pointB = GameObject.Find ("pointB").transform;
-		Player = GameObject.Find ("Player").transform;
+		//Player = GameObject.Find ("Player").transform;
 		
 	}
 	
@@ -50,14 +50,14 @@ public class Movement : MonoBehaviour {
 	}
 
 
-	void OnTriggerEnter(Collider other){
-
-		if (other.gameObject.CompareTag ("Player")) {
-
-
-			Eye.transform.LookAt (Player);
-
-		}
-
-	}
+//	void OnTriggerEnter(Collider other){
+//
+//		if (other.gameObject.CompareTag ("Player")) {
+//
+//
+//			Eye.transform.LookAt (Player);
+//
+//		}
+//
+//	}
 }

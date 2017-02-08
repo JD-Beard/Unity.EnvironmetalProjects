@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: eee0b3216bef5e947bd09f99e6dc6dcb
+timeCreated: 1486447965
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: The Quick South St
+  fontNames:
+  - The Quick South St
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

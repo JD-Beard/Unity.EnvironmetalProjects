@@ -24,6 +24,6 @@ public class Spawn : MonoBehaviour {
 	private void spawnEnemies(){
 
 
-		Instantiate (enemies, spawnPoint.transform.position, spawnPoint.transform.rotation);
+		Instantiate (enemies, spawnPoint.transform.position, Quaternion.identity);
 	}
 }
