@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class TrackExperience : MonoBehaviour {
 
@@ -12,16 +13,26 @@ public class TrackExperience : MonoBehaviour {
 	bool eastEx = false;
 	int QuestDone;
 	bool hasKey;
+
+	float timer = 3.0f;
 	// Use this for initialization
 	void Start () {
 		QuestDone = 0;
 		hasKey = false;
 
+		GameObject.Find("Player").GetComponent<FirstPersonController>().enabled = false;
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+
+		timer -= Time.deltaTime;
+		if (timer < 0) {
+
+			TurnOnPlayer ();
+		}
 
 		if (QuestDone==4 && hasKey ==false) {
 
@@ -31,6 +42,12 @@ public class TrackExperience : MonoBehaviour {
 		
 	}
 
+
+	void TurnOnPlayer(){
+
+		GameObject.Find("Player").GetComponent<FirstPersonController>().enabled = true;
+	}
+
 	void BeginTheGameover(){
 
 		StartCoroutine (Gameover ());
@@ -38,7 +55,7 @@ public class TrackExperience : MonoBehaviour {
 	}
 
 	IEnumerator Gameover(){
-		yield return new WaitForSeconds (5f);
+		yield return new WaitForSeconds (20f);
 		SceneManager.LoadSceneAsync("Gameover");
 
 
@@ -49,46 +66,46 @@ public class TrackExperience : MonoBehaviour {
 
 
 
-	void OnTriggerEnter(Collider other){
-
-		if (other.gameObject.CompareTag ("NorthExperience")) {
-
-			if (!northEx) {
-				QuestDone++;
-				northEx = true;
-				Debug.Log (QuestDone);
-			}
-		}
-
-		if (other.gameObject.CompareTag ("SouthExperience")) {
-
-			if (!southEx) {
-				QuestDone++;
-				southEx = true;
-				Debug.Log (QuestDone);
-			}
-		}
-
-
-		if (other.gameObject.CompareTag ("WestExperience")) {
-
-			if (!westEx) {
-				QuestDone++;
-				westEx = true;
-				Debug.Log (QuestDone);
-			}
-		}
-
-
-		if (other.gameObject.CompareTag ("EastExperience")) {
-
-			if (!eastEx) {
-				QuestDone++;
-				eastEx = true;
-				Debug.Log (QuestDone);
-			}
-		}
-	}
+//	void OnTriggerEnter(Collider other){
+//
+//		if (other.gameObject.CompareTag ("NorthExperience")) {
+//
+//			if (!northEx) {
+//				QuestDone++;
+//				northEx = true;
+//				Debug.Log (QuestDone);
+//			}
+//		}
+//
+//		if (other.gameObject.CompareTag ("SouthExperience")) {
+//
+//			if (!southEx) {
+//				QuestDone++;
+//				southEx = true;
+//				Debug.Log (QuestDone);
+//			}
+//		}
+//
+//
+//		if (other.gameObject.CompareTag ("WestExperience")) {
+//
+//			if (!westEx) {
+//				QuestDone++;
+//				westEx = true;
+//				Debug.Log (QuestDone);
+//			}
+//		}
+//
+//
+//		if (other.gameObject.CompareTag ("EastExperience")) {
+//
+//			if (!eastEx) {
+//				QuestDone++;
+//				eastEx = true;
+//				Debug.Log (QuestDone);
+//			}
+//		}
+//	}
 
 
 //	void OnTriggerStay(Collider other){
@@ -98,9 +115,48 @@ public class TrackExperience : MonoBehaviour {
 //	}
 //
 //
-//	void OnTriggerExit(Collider other){
-//
-//
-//
-//	}
+	void OnTriggerExit(Collider other){
+
+
+		if (other.gameObject.CompareTag ("NorthExperience")) {
+
+			if (!northEx) {
+				QuestDone++;
+				northEx = true;
+				//Debug.Log (QuestDone);
+			}
+		}
+
+		if (other.gameObject.CompareTag ("SouthExperience")) {
+
+			if (!southEx) {
+				QuestDone++;
+				southEx = true;
+				//Debug.Log (QuestDone);
+			}
+		}
+
+
+		if (other.gameObject.CompareTag ("WestExperience")) {
+
+			if (!westEx) {
+				QuestDone++;
+				westEx = true;
+				//Debug.Log (QuestDone);
+			}
+		}
+
+
+		if (other.gameObject.CompareTag ("EastExperience")) {
+
+			if (!eastEx) {
+				QuestDone++;
+				eastEx = true;
+				//Debug.Log (QuestDone);
+			}
+		}
+
+
+
+	}
 }

@@ -8,7 +8,6 @@ public class ChangeScene : MonoBehaviour {
 
 
 
-
 	public void ChangeToScene(int SceneToChangeTo){
 
 		SceneManager.LoadSceneAsync (SceneToChangeTo);
@@ -24,4 +23,14 @@ public class ChangeScene : MonoBehaviour {
 
 
 	}
+
+
+
+
+
+
+
+
+
+
 }
