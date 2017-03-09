@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 540e2403c90f2f244ae008f591586874
+timeCreated: 1488691146
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Just Die Already
+  fontNames:
+  - Just Die Already
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 4338ca71c4e8f0f489b2221b41e99535, type: 3}
+  - {fileID: 12800000, guid: 5e9fbc72ccb764f4eb0bbe36024cbae8, type: 3}
+  - {fileID: 12800000, guid: 2b7dd008854f47c41bfaef8d1a3653f5, type: 3}
+  - {fileID: 12800000, guid: 289ef41af17e80b459ad84fd133f0691, type: 3}
+  - {fileID: 12800000, guid: d3944b7e2dfe9904fa58b6700621c6f8, type: 3}
+  - {fileID: 12800000, guid: e5574f6ff9597b14f8d4340ee70c2b7e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
