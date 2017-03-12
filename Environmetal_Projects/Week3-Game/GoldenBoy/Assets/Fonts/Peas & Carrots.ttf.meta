@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 23042ef505fe1014fbd8db8f3c07d7ec
+timeCreated: 1489254769
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Peas & Carrots
+  fontNames:
+  - Peas & Carrots
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

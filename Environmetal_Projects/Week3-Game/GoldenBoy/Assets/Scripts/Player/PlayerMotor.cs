@@ -6,10 +6,13 @@ public class PlayerMotor : MonoBehaviour {
 
 
 	public float moveSpeed;
+	private float moveSpeedStore;
 	public float speedMultiplier;
 
 	public float speedIncreaseMilestone;
+	private float speedIncreaseMilestoneStore;
 	private float speedMilestoneCount;
+	private float speedMilestoneCountStore;
 
 	public float jumpForce;
 	public float jumpTime;
@@ -23,6 +26,17 @@ public class PlayerMotor : MonoBehaviour {
 	private Rigidbody2D RB2D;
 	private Animator anim;
 
+	public GameManager theGameManager;
+	public PowerManager thePowerManager;
+
+	private AudioSource powerUp;
+
+	public GameObject over9000;
+
+	bool hasTurnOn = false;
+
+
+
 
 
 
@@ -31,14 +45,35 @@ public class PlayerMotor : MonoBehaviour {
 
 
 		RB2D = GetComponent<Rigidbody2D> ();
+
 		anim = GetComponent<Animator> ();
+	
 		jumpTimeCounter = jumpTime;
+
 		speedMilestoneCount = speedIncreaseMilestone;
+
+		moveSpeedStore = moveSpeed;
+		speedMilestoneCountStore = speedMilestoneCount;
+		speedIncreaseMilestoneStore = speedIncreaseMilestone;
+		hasTurnOn = false;
+		powerUp = GetComponent<AudioSource> ();
+
 		
 	}
 	
 
 	void Update () {
+
+
+		if (thePowerManager.curPower >= 0.9 && hasTurnOn == false) {
+			over9000.gameObject.SetActive (true);
+			PlayEffect ();
+			hasTurnOn = true;
+
+
+
+		
+		}
 
 	
 		 
@@ -82,5 +117,33 @@ public class PlayerMotor : MonoBehaviour {
 
 		anim.SetFloat ("Speed", RB2D.velocity.x);
 		anim.SetBool ("Grounded", grounded);
+	}
+
+
+	void PlayEffect(){
+
+		powerUp.Play ();
+
+	}
+
+
+
+
+
+	void OnCollisionEnter2D(Collision2D other){
+
+		if (other.collider.CompareTag ("DeathBox")) {
+
+			theGameManager.RestartGame ();
+			thePowerManager.ResetPower ();
+			moveSpeed = moveSpeedStore;
+			speedMilestoneCount = speedMilestoneCountStore;
+			speedIncreaseMilestone = speedIncreaseMilestoneStore;
+			over9000.gameObject.SetActive (false);
+
+
+		}
+
+
 	}
 }

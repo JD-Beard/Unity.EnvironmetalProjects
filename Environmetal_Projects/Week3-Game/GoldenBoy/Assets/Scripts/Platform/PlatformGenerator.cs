@@ -21,6 +21,9 @@ public class PlatformGenerator : MonoBehaviour {
 	public Transform maxHeightPoint;
 	public float maxHeightChange;
 
+	private PowerUpGenerator thePowerUpGenerator;
+	public float randomPowerUpMix;
+
 
 
 
@@ -36,6 +39,8 @@ public class PlatformGenerator : MonoBehaviour {
 
 		minHeight = transform.position.y;
 		maxHeight = maxHeightPoint.position.y;
+
+		thePowerUpGenerator = FindObjectOfType<PowerUpGenerator> ();
 
 		
 	}
@@ -71,6 +76,11 @@ public class PlatformGenerator : MonoBehaviour {
 			newPlatform.transform.position = transform.position;
 			newPlatform.transform.rotation = transform.rotation;
 			newPlatform.SetActive (true);
+
+			if (Random.Range (0f, 100f) < randomPowerUpMix) {
+				thePowerUpGenerator.SpawnPowerUp (new Vector3 (transform.position.x, transform.position.y + 3f, transform.position.z));
+			}
+			transform.position = new Vector3 (transform.position.x + (platformWidths [platformSelector] / 2), transform.position.y, transform.position.z);
 		}
 		
 	}
