@@ -12,6 +12,7 @@ public class PowerManager : MonoBehaviour {
 	private float inc_Power = 0.1f;
 	bool hasGain;
 	public GameObject PowerBar;
+	public PlayerMotor thePlayer;
 
 
 
@@ -33,24 +34,23 @@ public class PowerManager : MonoBehaviour {
 
 			LoadPowerScene ();
 			hasGain = true;
-		
+
+		} 
 
 
-		}
-		
-	}
+			}
 
 	void LoadPowerScene(){
 
-		StartCoroutine ("PowerScene");
+			StartCoroutine ("PowerScene");
 	
+		}
 
 
 
-	}
 
 	IEnumerator PowerScene(){
-		yield return new WaitForSeconds (2f);
+		yield return new WaitForSeconds (1f);
 		SceneManager.LoadScene ("PowerUpScene");
 
 

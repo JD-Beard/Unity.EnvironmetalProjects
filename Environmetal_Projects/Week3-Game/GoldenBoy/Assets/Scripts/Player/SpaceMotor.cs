@@ -11,6 +11,9 @@ public class SpaceMotor : MonoBehaviour {
 
 	public GameObject bullet;
 	public Transform spawnPoint;
+	private Animator Anim;
+	public AudioSource FBSound;
+	public PowerMeter theMeter;
 
 
 
@@ -24,10 +27,12 @@ public class SpaceMotor : MonoBehaviour {
 	{
 
 
+
 	
 
 
 		playerSpeed = 5f;
+		Anim = GetComponent<Animator> ();
 
 
 
@@ -75,11 +80,19 @@ public class SpaceMotor : MonoBehaviour {
 
 
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		if (Input.GetKeyDown (KeyCode.Space) && theMeter.cur_Meter >= 0) {
 
-
+			FBSound.Play ();
 			Instantiate (bullet, spawnPoint.transform.position, Quaternion.identity);
+			Anim.SetBool ("HasShoot", true);
+			theMeter.descreaseMeter ();
 
+		}
+
+
+		if (Input.GetKeyUp (KeyCode.Space)) {
+
+			Anim.SetBool ("HasShoot", false);
 		}
 
 

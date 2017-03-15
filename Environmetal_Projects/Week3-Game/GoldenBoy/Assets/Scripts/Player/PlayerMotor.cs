@@ -17,6 +17,7 @@ public class PlayerMotor : MonoBehaviour {
 	public float jumpForce;
 	public float jumpTime;
 	private float jumpTimeCounter;
+	private bool checkJump;
 
 	public bool grounded;
 	public LayerMask whatIsGround;
@@ -28,8 +29,10 @@ public class PlayerMotor : MonoBehaviour {
 
 	public GameManager theGameManager;
 	public PowerManager thePowerManager;
+	public SoundManager theSoundManager;
 
-	private AudioSource powerUp;
+	public AudioSource powerUp;
+	public AudioSource jumpSound;
 
 	public GameObject over9000;
 
@@ -41,9 +44,10 @@ public class PlayerMotor : MonoBehaviour {
 
 
 
+
 	void Start () {
 
-
+		checkJump = true;
 		RB2D = GetComponent<Rigidbody2D> ();
 
 		anim = GetComponent<Animator> ();
@@ -56,7 +60,8 @@ public class PlayerMotor : MonoBehaviour {
 		speedMilestoneCountStore = speedMilestoneCount;
 		speedIncreaseMilestoneStore = speedIncreaseMilestone;
 		hasTurnOn = false;
-		powerUp = GetComponent<AudioSource> ();
+
+	
 
 		
 	}
@@ -90,13 +95,17 @@ public class PlayerMotor : MonoBehaviour {
 
 
 		if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
-
+			jumpSound.Play ();
 			if (grounded) {
+				
 				RB2D.velocity = new Vector2 (RB2D.velocity.x, jumpForce);
+				checkJump = false;
+
+
 			}
 		}
 
-		if  (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) {
+		if  (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0) && !checkJump) {
 
 			if (jumpTimeCounter > 0) {
 
@@ -108,6 +117,7 @@ public class PlayerMotor : MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.Space) || Input.GetMouseButtonUp(0)) {
 
 			jumpTimeCounter = 0; 
+			checkJump = true;
 		}
 
 		if (grounded) {
@@ -134,12 +144,14 @@ public class PlayerMotor : MonoBehaviour {
 
 		if (other.collider.CompareTag ("DeathBox")) {
 
+			theSoundManager.PlaySound (1);
 			theGameManager.RestartGame ();
 			thePowerManager.ResetPower ();
 			moveSpeed = moveSpeedStore;
 			speedMilestoneCount = speedMilestoneCountStore;
 			speedIncreaseMilestone = speedIncreaseMilestoneStore;
 			over9000.gameObject.SetActive (false);
+
 
 
 		}

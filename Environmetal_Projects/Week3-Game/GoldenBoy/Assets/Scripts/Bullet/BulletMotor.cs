@@ -9,6 +9,9 @@ public class BulletMotor : MonoBehaviour {
 	public float shootSpeed;
 
 
+
+
+
 	void Start () {
 
 		RB2D = GetComponent<Rigidbody2D> ();

@@ -44,5 +44,6 @@ public class GameManager : MonoBehaviour {
 		platformGenerator.position = platformStartPoint;
 		thePlayer.gameObject.SetActive (true);
 
+
 	}
 }
