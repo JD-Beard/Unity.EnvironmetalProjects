@@ -45,6 +45,7 @@ public class PlayerMotor : MonoBehaviour {
 
 
 
+
 	void Start () {
 
 		checkJump = true;
@@ -60,6 +61,7 @@ public class PlayerMotor : MonoBehaviour {
 		speedMilestoneCountStore = speedMilestoneCount;
 		speedIncreaseMilestoneStore = speedIncreaseMilestone;
 		hasTurnOn = false;
+
 
 	
 
@@ -151,6 +153,7 @@ public class PlayerMotor : MonoBehaviour {
 			speedMilestoneCount = speedMilestoneCountStore;
 			speedIncreaseMilestone = speedIncreaseMilestoneStore;
 			over9000.gameObject.SetActive (false);
+
 
 
 

@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 	public PlayerMotor thePlayer;
 	private Vector3 playerStartPoint;
 
+
+
 	private PlatformDestroyer[] platformList;
 
 	void Start () {

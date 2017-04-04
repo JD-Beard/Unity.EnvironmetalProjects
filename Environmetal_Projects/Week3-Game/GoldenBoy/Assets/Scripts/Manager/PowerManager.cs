@@ -64,11 +64,14 @@ public class PowerManager : MonoBehaviour {
 	}
 
 	IEnumerator StartTheReset(){
-		yield return new WaitForSeconds (.5f);
-		PowerBar.transform.localScale = new Vector3 (0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
-		curPower = 0f;
-		maxpowerMeter = 0f;
-		hasGain = false;
+
+
+			yield return new WaitForSeconds (.5f);
+			PowerBar.transform.localScale = new Vector3 (0, PowerBar.transform.localScale.y, PowerBar.transform.localScale.z);
+			curPower = 0f;
+			maxpowerMeter = 0f;
+			hasGain = false;
+
 
 
 	}
